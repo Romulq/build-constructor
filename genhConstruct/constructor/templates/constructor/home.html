@@ -1,0 +1,14 @@
+{% extends "constructor/index.html" %}
+{% load static %}
+
+{% block one %}
+    {% for weapon in weapons %}
+        <h5>Type: {{ weapon.type.name }}, Name: {{ weapon.name }}</h5>
+    {% endfor %}
+    {% for artifact in artifacts %}
+        <h5>Type: {{ artifact.type.name }}, Name: {{ artifact.name }}</h5>
+    {% endfor %}
+    {% for character in characters %}
+        <h5>Type: {{ character.type.name }}, Name: {{ character.name }}</h5>
+    {% endfor %}
+{% endblock %}

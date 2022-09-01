@@ -1,0 +1,91 @@
+{% extends "constructor/index.html" %}
+{% load static %}
+
+{% block one %}
+
+    <div class="row justify-content-md-center elements mb-5">
+        {% for element in elements %}
+            <div class="mx-4 element">
+                <a class="clickElement" data-element="#{{ element.color }}" href="javascript:;"><img src="{{ element.img.url }}"></a>
+            </div>
+        {% endfor %}
+    </div>
+
+    <div  class="backgroundCard mx-5 mb-5" style="background: url('{% static 'img/overlay.jpg' %}') center center / cover no-repeat;
+                                            border-radius: 9px;
+                                            color: #fff; ">
+        <div id="card" class="row offer recipe justify-content-center mx-0 px-4 py-4" style="bordAbstractImageEntityer-radius: 9px">
+
+            <div class="col-md-3 text-center align-self-center px-3 py-3">
+                <a class="btn btn-outline-secondary select-character px-0 py-0">+ Персонаж</a>
+            </div>
+
+            <div class="col-md-5 text-center align-self-center px-3 py-3">
+                <div class="my-3">
+                   <h3>Ху Тао</h3>
+                    <h3>Уровень 56</h3>
+                </div>
+                <h5>Макс.ХП 21000</h5>
+                <h5>Сила атаки 1111</h5>
+                <h5>Защита 1200</h5>
+                <h5>Мастерство стихий 340</h5>
+                <h5>Шанс крит.попадания 56.0%</h5>
+                <h5>Крит.урон 122.3%</h5>
+                <h5>Восст.энергии 144.0%</h5>
+                <h5>Бонус Пиро урона 61.3%</h5>
+            </div>
+
+            <div class="col-md-4 text-center align-self-center px-3 py-3">
+                <a class="btn btn-outline-secondary select-item">+ Оружие</a>
+                <a class="btn btn-outline-secondary select-item">+ Цветок</a>
+                <a class="btn btn-outline-secondary select-item">+ Перо</a>
+                <a class="btn btn-outline-secondary select-item">+ Кубок</a>
+                <a class="btn btn-outline-secondary select-item">+ Часы</a>
+                <a class="btn btn-outline-secondary select-item">+ Шапка</a>
+            </div>
+
+        </div>
+    </div>
+
+{% endblock %}
+
+
+<!--                <div class="row col-md-12 px-5 py-4">-->
+<!--                    <div class="col px-0 text-left">-->
+<!--                        <p>recipe.date|date:"d.m.Yг"</p>-->
+<!--                    </div>-->
+<!--                    <div class="col px-0 text-right">-->
+<!--                        <p>recipe.category</p>-->
+<!--                    </div>-->
+<!--                </div>-->
+
+<!--                <div class="col-md-12 text-center align-self-center">-->
+<!--                    <h2 class="recipe-title">nameRecipe</h2>-->
+<!--                </div>-->
+
+<!--                <div class="col-md-12 px-5 py-4">-->
+
+<!--                    <div class="row ml-auto col-md-2 justify-content-end">-->
+<!--                        <img src="{% static 'image/timetocreate.png' %}" alt="create" height="24" width="24">-->
+<!--                        <p class="mx-3">timeofCreation ч</p>-->
+<!--                    </div>-->
+<!--                    <div class="row ml-auto col-md-2 justify-content-end">-->
+<!--                        <img src="{% static 'image/portion.png' %}" alt="portions" height="24" width="24">-->
+<!--                        <p class="mx-3">recipe.count пор.</p>-->
+<!--                    </div>-->
+
+<!--                </div>-->
+
+
+{% block scripts %}
+
+    <script>
+        $(".clickElement").click(function (e) {
+            e.preventDefault();
+
+            var card = document.getElementById("card");
+            card.style.backgroundColor = $(this).attr("data-element")
+        });
+    </script>
+
+{% endblock %}

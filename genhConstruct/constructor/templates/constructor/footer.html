@@ -1,0 +1,23 @@
+{% load static %}
+
+<footer class="bg-dark">
+    <div class="container footer">
+        <div class="row justify-content-md-center">
+            <div class="col-md-3 text-light align-self-center">
+                <h1 class="navbar-brand title">
+                    <img src="{% static 'image/logo.png' %}" alt="logo">
+                    Constructor
+                </h1>
+            </div>
+            <div class="col-md-2 nav flex-column">
+                <a class="nav-item nav-link text-light" href="{% url 'home' %}">Главная</a>
+
+            </div>
+            <div class="col align-self-center text-center">
+                <a href="#">
+                    <img src="{% static 'image/up.png' %}" alt="up">
+                </a>
+            </div>
+        </div>
+    </div>
+</footer>

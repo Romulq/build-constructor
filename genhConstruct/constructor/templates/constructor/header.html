@@ -1,0 +1,35 @@
+{% load static %}
+
+<header>
+    <nav class="container navbar navbar-expand-lg navbar-dark" style="margin-top: 40px; margin-bottom: 50px;">
+        <h1 class="navbar-brand title">
+<!--            <img src="{% static 'img/geo_slime.png' %}" style="height: 70px; width: 70px;" alt="logo">-->
+            Genshin Constructor
+        </h1>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse justify-content-md-center" id="navbarNavAltMarkup">
+            <div class="navbar-nav header-link">
+                <a class="nav-item nav-link" href="{% url 'home' %}">Главная</a>
+
+                <a class="nav-item nav-link" href="{% url 'build' slug='all' %}">Сборки</a>
+            </div>
+        </div>
+        <div class="sign">
+            {% if request.user.is_authenticated %}
+                <a id="navbarDropdown" role="button" data-toggle="dropdown">
+                    <img src="{% static 'img/login.png' %}" alt="sign">
+                </a>
+                <div class="dropdown-menu" style="position: static;" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" href="{% url 'profile' %}">Профиль</a>
+                    <a class="dropdown-item" href="{% url 'sign_out' %}">Выход</a>
+                </div>
+            {% else %}
+                <a href="{% url 'sign_in' %}">
+                    <img src="{% static 'img/login.png' %}" alt="sign">
+                </a>
+            {% endif %}
+        </div>
+    </nav>
+</header>
