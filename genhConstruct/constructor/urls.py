@@ -13,5 +13,6 @@ urlpatterns = [
     path('logout/', LogoutView.as_view(), name="sign_out"),
     # path('registration/', RegistrationView.as_view(), name="sign_up"),
 
-    path('api/', include(urls.urlpatterns)),
+    path('api/v1/', include(urls.urlpatterns)),
+    path('api-auth/', include('rest_framework.urls')),
 ]

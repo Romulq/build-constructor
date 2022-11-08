@@ -14,6 +14,9 @@ class TypeArtifactSerializer(serializers.ModelSerializer):
 
 
 class ArtifactSerializer(serializers.ModelSerializer):
+
+    type = serializers.SlugRelatedField(slug_field="name", read_only=True)
+
     class Meta:
         model = Artifact
         fields = '__all__'
@@ -32,6 +35,9 @@ class TypeWeaponSerializer(serializers.ModelSerializer):
 
 
 class WeaponSerializer(serializers.ModelSerializer):
+
+    type = serializers.SlugRelatedField(slug_field="name", read_only=True)
+
     class Meta:
         model = Weapon
         fields = '__all__'
@@ -40,7 +46,7 @@ class WeaponSerializer(serializers.ModelSerializer):
 class WeaponBuildSerializer(serializers.ModelSerializer):
     class Meta:
         model = WeaponBuild
-        fields = ('username',)
+        fields = '__all__'
 
 
 class CharacterSerializer(serializers.ModelSerializer):

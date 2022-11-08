@@ -14,11 +14,11 @@ class MainView(View):
     def get(self, request):
         weapons = Weapon.objects.all()
         artifacts = Artifact.objects.all()
-        character = Character.objects.all()
+        characters = Character.objects.all()
         elements = Element.objects.all()
 
         context = {
-            "weapons": weapons, "artifacts": artifacts, "character": character, "elements": elements
+            "weapons": weapons, "artifacts": artifacts, "characters": characters, "elements": elements
         }
 
         return render(request, 'constructor/constructor.html', context)

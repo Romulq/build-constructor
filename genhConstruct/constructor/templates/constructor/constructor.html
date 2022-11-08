@@ -14,67 +14,173 @@
     <div  class="backgroundCard mx-5 mb-5" style="background: url('{% static 'img/overlay.jpg' %}') center center / cover no-repeat;
                                             border-radius: 9px;
                                             color: #fff; ">
-        <div id="card" class="row offer recipe justify-content-center mx-0 px-4 py-4" style="bordAbstractImageEntityer-radius: 9px">
+        <div id="card" class="row offer recipe justify-content-center mx-0 px-4 py-4">
 
             <div class="col-md-3 text-center align-self-center px-3 py-3">
-                <a class="btn btn-outline-secondary select-character px-0 py-0">+ Персонаж</a>
+                <a class="btn btn-outline-secondary select-character px-0 py-0" data-toggle="modal" data-target="#charactersView">+ Персонаж</a>
             </div>
 
             <div class="col-md-5 text-center align-self-center px-3 py-3">
                 <div class="my-3">
-                   <h3>Ху Тао</h3>
+                    <h3>Ху Тао</h3>
                     <h3>Уровень 56</h3>
                 </div>
-                <h5>Макс.ХП 21000</h5>
-                <h5>Сила атаки 1111</h5>
-                <h5>Защита 1200</h5>
-                <h5>Мастерство стихий 340</h5>
-                <h5>Шанс крит.попадания 56.0%</h5>
-                <h5>Крит.урон 122.3%</h5>
-                <h5>Восст.энергии 144.0%</h5>
-                <h5>Бонус Пиро урона 61.3%</h5>
+                <div>
+                    <h5>Макс.ХП 21000</h5>
+                    <h5>Сила атаки 1111</h5>
+                    <h5>Защита 1200</h5>
+                    <h5>Мастерство стихий 340</h5>
+                    <h5>Шанс крит.попадания 56.0%</h5>
+                    <h5>Крит.урон 122.3%</h5>
+                    <h5>Восст.энергии 144.0%</h5>
+                    <h5>Бонус Пиро урона 61.3%</h5>
+                </div>
+
             </div>
 
             <div class="col-md-4 text-center align-self-center px-3 py-3">
-                <a class="btn btn-outline-secondary select-item">+ Оружие</a>
-                <a class="btn btn-outline-secondary select-item">+ Цветок</a>
-                <a class="btn btn-outline-secondary select-item">+ Перо</a>
-                <a class="btn btn-outline-secondary select-item">+ Кубок</a>
-                <a class="btn btn-outline-secondary select-item">+ Часы</a>
-                <a class="btn btn-outline-secondary select-item">+ Шапка</a>
+                <a class="btn btn-outline-secondary select-item"  data-toggle="modal" data-target="#weaponView">+ Оружие</a>
+                <a class="btn btn-outline-secondary select-item"  data-toggle="modal" data-target="#art1View">+ Цветок</a>
+                <a class="btn btn-outline-secondary select-item"  data-toggle="modal" data-target="#art2View">+ Перо</a>
+                <a class="btn btn-outline-secondary select-item"  data-toggle="modal" data-target="#art3View">+ Кубок</a>
+                <a class="btn btn-outline-secondary select-item"  data-toggle="modal" data-target="#art4View">+ Часы</a>
+                <a class="btn btn-outline-secondary select-item"  data-toggle="modal" data-target="#art5View">+ Шапка</a>
             </div>
 
         </div>
     </div>
 
+    <div class="modal fade" id="charactersView" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-scrollable" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Персонаж</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    {% for character in characters %}
+                        <input type="radio" name="options" id="option1" autocomplete="off" checked>{{ character.name }}
+                    {% endfor %}
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary">Выбрать</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="weaponView" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-scrollable" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Оружие</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    {% for weapon in weapons %}
+                    <h4>{{ weapon.name }}</h4>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="art1View" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-scrollable" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Перо</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    {% for artifact in artifacts %}
+                    <h4>{{ artifact.name }}</h4>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="art2View" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-scrollable" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Кубок</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    {% for artifact in artifacts %}
+                    <h4>{{ artifact.name }}</h4>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="modal fade" id="art3View" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-scrollable" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Часы</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    {% for artifact in artifacts %}
+                    <h4>{{ artifact.name }}</h4>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="art4View" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-scrollable" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Шапка</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    {% for artifact in artifacts %}
+                    <h4>{{ artifact.name }}</h4>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="art5View" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-scrollable" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Персонажи</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    {% for artifact in artifacts %}
+                    <h4>{{ artifact.name }}</h4>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+
 {% endblock %}
-
-
-<!--                <div class="row col-md-12 px-5 py-4">-->
-<!--                    <div class="col px-0 text-left">-->
-<!--                        <p>recipe.date|date:"d.m.Yг"</p>-->
-<!--                    </div>-->
-<!--                    <div class="col px-0 text-right">-->
-<!--                        <p>recipe.category</p>-->
-<!--                    </div>-->
-<!--                </div>-->
-
-<!--                <div class="col-md-12 text-center align-self-center">-->
-<!--                    <h2 class="recipe-title">nameRecipe</h2>-->
-<!--                </div>-->
-
-<!--                <div class="col-md-12 px-5 py-4">-->
-
-<!--                    <div class="row ml-auto col-md-2 justify-content-end">-->
-<!--                        <img src="{% static 'image/timetocreate.png' %}" alt="create" height="24" width="24">-->
-<!--                        <p class="mx-3">timeofCreation ч</p>-->
-<!--                    </div>-->
-<!--                    <div class="row ml-auto col-md-2 justify-content-end">-->
-<!--                        <img src="{% static 'image/portion.png' %}" alt="portions" height="24" width="24">-->
-<!--                        <p class="mx-3">recipe.count пор.</p>-->
-<!--                    </div>-->
-
-<!--                </div>-->
 
 
 {% block scripts %}
