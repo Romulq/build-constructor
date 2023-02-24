@@ -40,6 +40,7 @@ INSTALLED_APPS = [
 
     'constructor',
 
+    'drf_yasg',
     'debug_toolbar',
     'crispy_forms',
     'rest_framework',
