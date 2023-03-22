@@ -1,17 +1,23 @@
 from django.db.models.query import QuerySet
 from rest_framework import viewsets
+from rest_framework.decorators import action, permission_classes
+from rest_framework.permissions import AllowAny
 
 from .serializers import (TypeArtifactSerializer, ArtifactSerializer, ArtifactBuildSerializer,
                           TypeWeaponSerializer, WeaponSerializer, WeaponBuildSerializer,
                           CharacterSerializer, CharacterBuildSerializer,
-                          BuildSerializer
-                          )
+                          BuildSerializer, ElementSerializer)
 
 from ..models import (TypeArtifact, Artifact, ArtifactBuild,
                       TypeWeapon, Weapon, WeaponBuild,
                       Character, CharacterBuild,
-                      Build
-                      )
+                      Build, Element)
+
+
+class ElementViewSet(viewsets.ModelViewSet):
+
+    queryset = Element.objects.all()
+    serializer_class = ElementSerializer
 
 
 class TypeArtifactViewSet(viewsets.ModelViewSet):
@@ -50,6 +56,8 @@ class WeaponBuildViewSet(viewsets.ModelViewSet):
     serializer_class = WeaponBuildSerializer
 
 
+@action(detail=True, methods=['get'])
+@permission_classes([AllowAny])
 class CharacterViewSet(viewsets.ModelViewSet):
 
     queryset = Character.objects.all()

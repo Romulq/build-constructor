@@ -3,8 +3,13 @@ from rest_framework import serializers
 from ..models import (TypeArtifact, Artifact, ArtifactBuild,
                       TypeWeapon, Weapon, WeaponBuild,
                       Character, CharacterBuild,
-                      Build
-                      )
+                      Build, Element)
+
+
+class ElementSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Element
+        fields = '__all__'
 
 
 class TypeArtifactSerializer(serializers.ModelSerializer):
@@ -14,7 +19,6 @@ class TypeArtifactSerializer(serializers.ModelSerializer):
 
 
 class ArtifactSerializer(serializers.ModelSerializer):
-
     type = serializers.SlugRelatedField(slug_field="name", read_only=True)
 
     class Meta:
@@ -35,7 +39,6 @@ class TypeWeaponSerializer(serializers.ModelSerializer):
 
 
 class WeaponSerializer(serializers.ModelSerializer):
-
     type = serializers.SlugRelatedField(slug_field="name", read_only=True)
 
     class Meta:
@@ -65,7 +68,6 @@ class BuildSerializer(serializers.ModelSerializer):
     class Meta:
         model = Build
         fields = '__all__'
-
 
 # class CommentListRetrieveSerializer(serializers.ModelSerializer):
 #     user = UserSerializer()
